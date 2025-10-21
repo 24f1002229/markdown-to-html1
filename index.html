@@ -1,0 +1,50 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        #markdown-input {
+            min-height: 200px;
+        }
+        #markdown-output {
+            background-color: #ffffff;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Markdown to HTML Converter</h1>
+    <textarea id="markdown-input" class="form-control" placeholder="Type or paste your Markdown here..."></textarea>
+    <button id="convert-button" class="btn btn-primary mt-3">Convert to HTML</button>
+    <div id="markdown-output" class="mt-4"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<script>
+    document.getElementById('convert-button').addEventListener('click', function() {
+        var markdownText = document.getElementById('markdown-input').value;
+        var htmlContent = marked(markdownText);
+        document.getElementById('markdown-output').innerHTML = htmlContent;
+        hljs.highlightAll();
+    });
+</script>
+
+</body>
+</html>
+```
